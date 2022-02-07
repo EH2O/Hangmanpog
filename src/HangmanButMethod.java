@@ -1,3 +1,5 @@
+import jdk.nashorn.internal.scripts.JO;
+
 import javax.swing.*;
 import java.util.Locale;
 import java.util.Random;
@@ -6,6 +8,22 @@ public class HangmanButMethod {
     public static void main(String[] args) {
         menu();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     static void menu(){
         String choi = JOptionPane.showInputDialog(null, "What do you want to do?\n 1: Choose a word and play hangman. \n2: Choose a random word and play hangman. \n3: quit the game. \n Please enter 1-3 depending on what you want to do");
@@ -59,7 +77,7 @@ public class HangmanButMethod {
 
         for(int i = 0; i < 10; i++){
             System.out.println("You have guessed: " + PG);
-            String L = Guess(y, PG);
+            String L = Guess(y, PG, i);
             PG = PG + " " + L;
             for (int c = 0; c < x.length(); c++) {
                 if (x.toUpperCase(Locale.ROOT).charAt(c) == L.toUpperCase(Locale.ROOT).charAt(0)) {
@@ -74,7 +92,9 @@ public class HangmanButMethod {
 
                 }
             }
-            if(correct == 0){
+
+
+            if(correct != 0){
                 correct = 0;
                 i--;
 
@@ -86,8 +106,9 @@ public class HangmanButMethod {
         return "Death";
 
     }
-    static String Guess( String x, String pg){
-        String Guess = JOptionPane.showInputDialog(null, "Your guess only one letter\n" + x + "\n You have already guessed: " + pg);
+    static String Guess( String x, String pg, int pgg){
+        int Aog = 10-pgg;
+        String Guess = JOptionPane.showInputDialog(null, "Your guess only one letter\n" + x + "\n You have already guessed: " + pg + " \n You have " + Aog + " guesses left");
         return Guess;
     }
     static void playg(){
